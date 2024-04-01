@@ -1,27 +1,40 @@
+// Importing the readline for handling user input/output
 const readline = require('readline');
 
+// Creating interface for reading input and displaying output
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+  input: process.stdin,   
+  output: process.stdout  
 });
 
+// Function to change uppercase to lowercase and vice versa
 function swapCase(inputString) {
-  let swappedString = '';
+  let swappedString = ''; 
+
+  // Go through each letter in message
   for (let i = 0; i < inputString.length; i++) {
-    let char = inputString[i];
+    let char = inputString[i]; 
+
+    // If it's uppercase,make it lowercase;if it's lowercase,make it uppercase
     if (char >= 'A' && char <= 'Z') {
-      swappedString += char.toLowerCase();
+      swappedString += char.toLowerCase(); 
     } else if (char >= 'a' && char <= 'z') {
-      swappedString += char.toUpperCase();
+      swappedString += char.toUpperCase(); 
     } else {
-      swappedString += char;
-    }
+      swappedString += char; 
+    } 
   }
-  return swappedString;
+
+  return swappedString; 
 }
 
-rl.question('Enter a string: ', (input) => {
+// Asking user to type a message
+rl.question('Type something: ', (input) => {
+  // Changing the case of the message 
   const swappedString = swapCase(input);
-  console.log('Swapped case string:', swappedString);
+  // Showing changed message in the console
+  console.log('Changed message:', swappedString);
+  // Closing readline
   rl.close();
 });
+
